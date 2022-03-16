@@ -2,28 +2,23 @@ function photographerFactory(data) {
     const { id, name, portrait, city, tagline, price, country } = data;
 
     const picture = `assets/images/photographers/${portrait}`;
-    const url = `photographer.html?=${id}`;
+    const url = `photographer.html?id=${id}`;
 
     function getUserCardDOM() {
         const article = document.createElement('article');
-
-        let a = document.createElement('a');
-        article.appendChild(a);
-        a.title = "my title text";
-        a.href = url;
-
-
-        const img = document.createElement('img');
-        img.setAttribute("src", picture)
+        const a = document.createElement('a');
         const h2 = document.createElement('h2');
-        h2.textContent = name;
+        const img = document.createElement('img');
         const paragrapheTagLine = document.createElement('p');
         const paragrapheCountry = document.createElement('p');
         const paragraphePrice = document.createElement('p');
+        a.href = url;
+        h2.textContent = name;
         paragrapheCountry.textContent = city + ", " + country;
         paragrapheTagLine.textContent = tagline;
         paragraphePrice.textContent = price + "€/jour";
-
+        article.appendChild(a);
+        img.setAttribute("src", picture)
         a.appendChild(img);
         a.appendChild(h2);
         article.appendChild(paragrapheCountry);
@@ -31,5 +26,33 @@ function photographerFactory(data) {
         article.appendChild(paragraphePrice);
         return (article);
     }
-    return { id, name, picture, tagline, city, price, country, getUserCardDOM }
+
+    function getUserBannerCardDOM() {
+        const articlePage = document.createElement("section");
+        const userCard = document.createElement('div');
+        const btnContact = document.createElement("button");
+        const h1 = document.createElement('h1');
+        const img = document.createElement('img');
+        const paragrapheTagLine = document.createElement('p');
+        const paragrapheCountry = document.createElement('p');
+
+        img.setAttribute("src", picture)
+        h1.textContent = name;
+        paragrapheCountry.textContent = city + ", " + country;
+        paragrapheTagLine.textContent = tagline;
+        articlePage.appendChild(userCard);
+        btnContact.classList.add("contact_button");
+        btnContact.setAttribute("onclick", "openModal()");
+        btnContact.textContent = "Contactez-moi";
+
+        userCard.appendChild(h1);
+        userCard.appendChild(paragrapheCountry);
+        userCard.appendChild(paragrapheTagLine);
+
+        articlePage.appendChild(btnContact);
+        articlePage.appendChild(img);
+        return (articlePage);
+
+    }
+    return { id, name, picture, tagline, city, price, country, getUserCardDOM, getUserBannerCardDOM }
 }

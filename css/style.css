@@ -45,11 +45,27 @@ h1 {
     text-decoration: none;
 }
 
-/* .photographer_section article:focus, .photographer_section article h2:focus {} */
+
 
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
+    line-height: 0px;
+}
+
+.photographer_section article p:nth-child(4) {
+    color: #757575;
+    font-size: 9px;
+}
+
+.photographer_section article p:nth-child(2) {
+    color: #901C1C;
+    font-size: 13px;
+}
+
+.photographer_section article p:nth-child(3) {
+    color: #525252;
+    font-size: 10px;
 }
 
 .photographer_section article img {
@@ -58,15 +74,6 @@ h1 {
     border-radius: 50%;
 }
 
-.photographer_section article p:nth-child(-n +6) {
+.photographer_section article p {
     line-height: 0px;
-}
-
-.photographer_section article p:nth-child(3n) {
-    color: #D3573C;
-    font-size: 17px;
-}
-
-.photographer_section article p:nth-child(5) {
-    color: #525252;
 }
