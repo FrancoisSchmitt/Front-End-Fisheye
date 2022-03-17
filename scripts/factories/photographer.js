@@ -2,9 +2,9 @@ function photographerFactory(data) {
     const { id, name, portrait, city, tagline, price, country } = data;
 
     const picture = `assets/images/photographers/${portrait}`;
-    const url = `photographer.html?id=${id}`;
 
     function getUserCardDOM() {
+        const url = `photographer.html?id=${id}`;
         const article = document.createElement('article');
         const a = document.createElement('a');
         const h2 = document.createElement('h2');
@@ -41,7 +41,7 @@ function photographerFactory(data) {
         paragrapheCountry.textContent = city + ", " + country;
         paragrapheTagLine.textContent = tagline;
         articlePage.appendChild(userCard);
-        btnContact.classList.add("contact_button");
+        btnContact.classList.add("contact_me");
         btnContact.setAttribute("onclick", "openModal()");
         btnContact.textContent = "Contactez-moi";
 

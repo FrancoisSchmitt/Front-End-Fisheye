@@ -10,15 +10,15 @@ const getPhotographers = async () => {
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
+const photographersHeader = document.querySelector(".photograph-header");
 
-async function displayData(photographers) {
-    const photographersHeader = document.querySelector(".photograph-header");
-
+// async function displayData(photographers) {
+const displayData = () => {
     photographers.forEach((photographer) => {
 
         if (photographer.id == id) {
-            const photographerModel = photographerFactory(photographer);
-            const userBannerCardDOM = photographerModel.getUserBannerCardDOM();
+            const bannerPhotograph = photographerFactory(photographer);
+            const userBannerCardDOM = bannerPhotograph.getUserBannerCardDOM();
             photographersHeader.appendChild(userBannerCardDOM);
         }
     });
