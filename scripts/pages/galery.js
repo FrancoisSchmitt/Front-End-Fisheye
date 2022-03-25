@@ -10,13 +10,15 @@ const getMedia = async () => {
 const paramsGalery = new URLSearchParams(window.location.search);
 const idGalery = paramsGalery.get("id");
 
+
+
 async function displayDataMedia(mediaPhotographers) {
     const mediaHeader = document.querySelector(".photograph-media");
     const countLike = document.querySelector(".likeCount-media");
     const galeryCarousels = document.querySelector(".carousel-content");
 
     mediaPhotographers.forEach((media) => {
-        if (media.photographerId == id) {
+        if (media.photographerId == idGalery) {
             const photographerModel = galeryFactory(media);
 
             const userGaleryCardDOM = photographerModel.getUserGaleryDOM();

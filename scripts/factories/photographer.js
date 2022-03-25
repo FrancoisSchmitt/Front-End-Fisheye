@@ -27,6 +27,15 @@ function photographerFactory(data) {
         return (article);
     }
 
+    function getNameContactDOM() {
+
+        const paragrapheName = document.createElement("h2");
+
+        paragrapheName.textContent = "Contactez-moi " + name;
+        // paragrapheName.appendChild(paragrapheName)
+        return (paragrapheName);
+    }
+
     function getUserBannerCardDOM() {
         const articlePage = document.createElement("section");
         const userCard = document.createElement('div');
@@ -54,5 +63,5 @@ function photographerFactory(data) {
         return (articlePage);
 
     }
-    return { id, name, picture, tagline, city, price, country, getUserCardDOM, getUserBannerCardDOM }
+    return { id, name, picture, tagline, city, price, country, getUserCardDOM, getUserBannerCardDOM, getNameContactDOM }
 }
