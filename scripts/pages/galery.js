@@ -44,18 +44,6 @@ function displayDataMedia() {
         }
     }
 
-    // function selectSort(optionSort) {
-    //     if (optionSort.selectedIndex = 0) {
-    //         console.log(optionSort.selectedIndex)
-    //         return sortMediaByLikes;
-    //     }
-    //     else if (optionSort.selectedIndex = 1) {
-    //         // console.log(optionSort.selectedIndex = "Date")
-    //         return sortMediaByDate;
-    //     } else {
-    //         return sortMediaByTitle;
-    //     }
-    // }
 
     // console.log(mediasFilter);
     mediasFilter.sort(sortSelect(optionsSort));
