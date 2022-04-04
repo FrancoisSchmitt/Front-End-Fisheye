@@ -8,11 +8,14 @@ const getPhotographers = async () => {
     };
 };
 
+
+
 async function displayData(photographers) {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
     const photographersHeader = document.querySelector(".photograph-header");
     const nameContact = document.querySelector(".nameContact")
+    const priceUser = document.querySelector(".likeCount-media")
 
     photographers.forEach((photographer) => {
 
@@ -24,6 +27,9 @@ async function displayData(photographers) {
 
             const nameContactDOM = bannerPhotograph.getNameContactDOM();
             nameContact.appendChild(nameContactDOM);
+
+            const priceUserDOM = bannerPhotograph.getPriceUserDOM();
+            priceUser.appendChild(priceUserDOM);
         }
     });
 };

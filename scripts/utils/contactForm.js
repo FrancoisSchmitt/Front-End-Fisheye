@@ -86,7 +86,7 @@ function validate() {
     }
     else {
         formData[3].setAttribute("data-error-visible", true);
-        formData[3].setAttribute("data-error", `Vous devez entrer votre date de naissance.`);
+        formData[3].setAttribute("data-error", `Vous devez entrer un message d'au moins 10 caractère.`);
         console.log(`Not Validate`);
         errors++;
     }

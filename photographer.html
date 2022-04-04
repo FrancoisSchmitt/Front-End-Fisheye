@@ -22,26 +22,35 @@
     </a>
   </header>
   <main id="main">
+
+    <!-- Banner du photograph -->
     <div class="photograph-header"></div>
+    <!-- système de tri -->
+
+    <label>Trier par : </label>
+
+    <select name="lstALL" id="lstALL">
+      <option value="popularité"> Popularité</option>
+      <option value="date">Date</option>
+      <option value="titre">Titre</option>
+    </select>
+
+
+    <!-- tous les medias des photographes -->
     <div class="photograph-media"></div>
-    <div class="likeCount-media"></div>
 
-    <div id="carousel" class="carousel">
-      <div class="carousel-icon">
-        <i class="fas fa-angle-left"></i>
-        <i class="fas fa-times" onclick="closeCarousel()"></i>
-        <i class="fas fa-angle-right"></i>
+
+    <!-- Likes et prix des medias en fonction du photographe -->
+    <div class="likeCount-media">
+      <div class="likeMedia">
+        <p class="like"></p>
+        <i class="fas fa-heart"></i>
       </div>
-      <div class="carousel-content"></div>
     </div>
-
   </main>
-
-
   <div id="contact_modal">
     <div class="modal">
       <header class="nameContact">
-
         <img src="assets/icons/close.svg" onclick="closeModal()" />
       </header>
       <div></div>
@@ -77,7 +86,10 @@
   <script src="scripts/pages/photographer.js"></script>
   <script src="scripts/factories/photographer.js"></script>
   <script src="scripts/utils/contactForm.js"></script>
-  <script src="scripts/utils/carousel.js"></script>
+  <script src="scripts/utils/sort.js"></script>
+  <script src="scripts/utils/lightbox.js" type="module" defer></script>
+
+
 </body>
 
 </html>
