@@ -1,4 +1,3 @@
-
 function galeryFactory(data) {
     const { id, photographerId, title, image, video, likes, date, price } = data;
 
@@ -12,17 +11,22 @@ function galeryFactory(data) {
         const titleParagraph = document.createElement('p');
         const likesParagraph = document.createElement('p');
         const videoGalery = document.createElement("video");
-        const heart = document.createElement("i");
+        const heart = document.createElement("input");
+        // const checkbox = document.createElement("input");
+        const label = document.createElement("label")
+
+        // checkbox.classList.add("input-Likes")
+        heart.setAttribute("type", "checkbox");
+        heart.setAttribute("id", id);
         heart.classList.add("fa-solid", "fa-heart");
         heart.classList.add("heart");
+        likesParagraph.setAttribute("for", id);
         likesParagraph.classList.add("Likes");
         titleParagraph.classList.add("title");
 
         likesParagraph.textContent = likes;
         titleParagraph.textContent = title;
-        heart.setAttribute('onclick', 'addLikes()')
-        likesParagraph.textContent = likes;
-        titleParagraph.textContent = title;
+
         if (image) {
             img.setAttribute("alt", "img");
             img.setAttribute("src", galeryId);
@@ -38,8 +42,9 @@ function galeryFactory(data) {
         }
         galeryUser.appendChild(userImage);
         userImage.appendChild(titleParagraph);
+        // userImage.appendChild(checkbox)
         userImage.appendChild(likesParagraph);
-        likesParagraph.appendChild(heart);
+        userImage.appendChild(heart);
         return (galeryUser);
     }
 

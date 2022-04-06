@@ -14,102 +14,48 @@ function getPhotographerId() {
 }
 
 function displayDataMedia() {
-    const mediasFilter = medias.filter(
+    const filterMediaPhotographer = medias.filter(
         (media) => media.photographerId === parseInt(getPhotographerId())
     );
 
 
+    var optionsSort = document.getElementById('mySelect').value;
 
-    const optionsSort = document.getElementById('lstALL');
+    function sortSelect() {
 
-    function sortSelect(optionSort) {
-        var tmpAry = new Array();
-        for (var i = 0; i < optionSort.options.length; i++) {
-            // console.log(optionSort.options.length)
-            tmpAry[i] = new Array();
-            tmpAry[i][0] = optionSort.options[i].text;
-            tmpAry[i][1] = optionSort.options[i].value;
-            console.log(tmpAry[i][0])
-
-            if (optionSort.option = 0) {
-                console.log(optionSort.option)
-                return sortByLikes;
-            }
-            else if (optionSort.option = 1) {
-                // console.log(optionSort.selectedIndex = "Date")
-                return sortByDate;
-            } else {
-                return sortByTitle;
-            }
+        if (optionsSort === "populariter") {
+            console.log("like")
+            return sortByLikes;
+        }
+        if (optionsSort === "date") {
+            console.log("date")
+            return sortByDate;
+        }
+        if (optionsSort === "titre") {
+            console.log("title")
+            return sortByTitle;
         }
     }
+    filterMediaPhotographer.sort(sortSelect());
+    const photographerMedia = document.querySelector(".photograph-media");
+    const lightboxMedia = document.querySelector(".lightbox-media");
 
-
-    // console.log(mediasFilter);
-    mediasFilter.sort(sortSelect(optionsSort));
-    const mediaHeader = document.querySelector(".photograph-media");
-
-    mediaHeader.innerHTML = "";
-    // console.log(mediasFilter);
-    mediasFilter.forEach((media) => {
-        //console.log(mediasFilter);
-
-        if (mediasFilter.indexOf()) {
+    photographerMedia.innerHTML = "";
+    lightboxMedia.innerHTML = "";
+    filterMediaPhotographer.forEach((media) => {
+        if (filterMediaPhotographer.indexOf()) {
             const mediaFactory = galeryFactory(media);
             // const photographerModel = galeryFactory(media);
             const userGaleryCardDOM = mediaFactory.getUserGaleryDOM();
-            mediaHeader.appendChild(userGaleryCardDOM);
+            photographerMedia.appendChild(userGaleryCardDOM);
         }
     });
 }
 
-async function initGalery() {
+async function initMedia() {
     // Récupère les medias des photographes
     const { medias } = await getMedias();
     displayDataMedia(medias);
+
 }
-initGalery();
-
-
-/**
- * Code a up, leger probleme de addLikes()
- */
-
-
-// function likeCounter() {
-//     const displayLikeCounter = document.querySelector(".like");
-//     const nbrLikes = document.querySelectorAll(".Likes");
-
-//     let likeData = 0;
-//     let totalLike = 0;
-//     let arrayLikes = [];
-
-//     nbrLikes.forEach((likes) => {
-//         likeData = parseInt(likes.textContent);
-//         arrayLikes.push(likeData);
-//         totalLike = arrayLikes.reduce((a, b) => a + b, 0);
-//         // console.log(totalLike)
-//     });
-//     // console.log(arrayLikes);
-//     displayLikeCounter.textContent = totalLike;
-// }
-
-
-// function addLikes() {
-//     const button = document.querySelector(".heart");
-//     const cntLikes = document.querySelector(".Likes");
-
-//     let clicked = false;
-
-//     button.addEventListener("click", () => {
-//         if (!clicked === true) {
-//             clicked = true;
-//             cntLikes.textContent++;
-//         } else {
-//             clicked = false;
-//             cntLikes.textContent--;
-//         }
-//         console.log(clicked)
-//         likeCounter();
-//     });
-// }
+initMedia();

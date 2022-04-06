@@ -22,7 +22,7 @@ class Lightbox {
         this.images = images
         this.loadImage(src)
         this.onKeyUp = this.onKeyUp.bind(this)
-        document.querySelector('main').appendChild(this.element)
+        document.querySelector('.lightbox-media').appendChild(this.element)
         document.addEventListener('keyup', this.onKeyUp)
     }
 

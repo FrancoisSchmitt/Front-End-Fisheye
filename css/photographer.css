@@ -34,19 +34,31 @@
 
 .photograph-media article div {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     color: #901C1C;
     font-size: 24px;
+}
+
+.photograph-media article div p:nth-child(1) {
+    margin-right: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .photograph-media article div p:nth-child(2) {
     display: flex;
     justify-content: space-around;
     width: 20%;
+    margin-left: 10%;
 }
 
-.photograph-media article div i {
-    margin: auto;
+.photograph-media article div input {
+    margin-bottom: auto;
+    margin-top: auto;
+    color: #901C1C;
+    appearance: none;
+    font-size: 24px;
 }
 
 
@@ -133,8 +145,7 @@
     height: 100%;
     width: 100%;
     overflow: auto;
-    background-color: rgba(26, 39, 156, 0.4);
-
+    z-index: 10;
 }
 
 .modal {
@@ -336,4 +347,69 @@ form input {
     width: 38px;
     height: 38px;
     background: url(../assets/icons/loader.svg)center center no-repeat;
+}
+
+/*  sort by  */
+
+
+
+#listbox-content {
+    margin-left: 7%;
+    margin-top: 2%;
+    display: flex;
+}
+
+#listbox-content label {
+    margin-right: 2%;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.select-style {
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    width: 170px;
+    height: 50px;
+    display: flex;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #901C1C;
+    position: relative;
+}
+
+.select-style select {
+    font-size: 18px;
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: #FFF;
+}
+
+.select-style:after {
+    top: 50%;
+    left: 85%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(0, 0, 0, 0);
+    border-top-color: #fff;
+    border-width: 5px;
+    margin-top: -2px;
+
+}
+
+.select-style select:focus {
+    outline: none;
 }
