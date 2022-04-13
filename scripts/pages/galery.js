@@ -38,20 +38,24 @@ function displayDataMedia() {
     }
     filterMediaPhotographer.sort(sortSelect());
     const photographerMedia = document.querySelector(".photograph-media");
-    const lightboxMedia = document.querySelector(".lightbox-media");
+    const lightbox = document.querySelector(".lightbox-media");
+
+
 
     photographerMedia.innerHTML = "";
-    lightboxMedia.innerHTML = "";
+    lightbox.innerHTML = "";
     filterMediaPhotographer.forEach((media) => {
         if (filterMediaPhotographer.indexOf()) {
             const mediaFactory = galeryFactory(media);
             // const photographerModel = galeryFactory(media);
             const userGaleryCardDOM = mediaFactory.getUserGaleryDOM();
             photographerMedia.appendChild(userGaleryCardDOM);
+
         }
     });
+    Lightbox.init();
 }
-
+// .lightbox__container
 async function initMedia() {
     // Récupère les medias des photographes
     const { medias } = await getMedias();

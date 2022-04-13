@@ -1,22 +1,56 @@
 
 const selectElt = document.getElementById('mySelect');
-const listboxCustomt = document.getElementById('listbox-content');
+const oldSelectSort = document.getElementById('listbox-content');
+
+const newSortButton = document.createElement("button")
+oldSelectSort.appendChild(newSortButton)
+
+
+const newSort = document.createElement("label");
+newSortButton.appendChild(newSort)
+newSortButton.classList.add("new-listbox");
+newSortButton.setAttribute("aria-label", "SortSelected")
+newSortButton.innerHTML = selectElt.options[selectElt.selectedIndex].innerHTML;
+
+const newOptionOfSelect = document.createElement("div");
+newOptionOfSelect.classList.add("select-items", "select-hide");
 
 
 
 for (let option of selectElt.options) {
-    var opt = document.querySelectorAll("option").value;
-    opt = selectElt.options;
-    option.addEventListener("change", function () {
+    const newOption = document.createElement("label");
+    newOption.setAttribute("tabindex", "0")
+    newOption.setAttribute("role", "option")
+
+    newOption.innerHTML = option.innerHTML;
+    newOption.addEventListener("click", function () {
         for (let option of selectElt.options) {
-            if (option === option.innerHTML) {
+            if (option.innerHTML === newOption.innerHTML) {
                 selectElt.selectedIndex = option.index;
+                newSortButton.innerHTML = newOption.innerHTML;
             }
         }
+        newSortButton.click();
     });
+    newOption.addEventListener("keydown", function (e) {
+        if (e.code === 'Enter') {
+            for (let option of selectElt.options) {
+                if (option.innerHTML === newOption.innerHTML) {
+                    selectElt.selectedIndex = option.index;
+                    newSortButton.innerHTML = newOption.innerHTML;
+                }
+            }
+            newSortButton.click();
+        }
+    });
+    newOptionOfSelect.appendChild(newOption);
 }
-listboxCustomt.addEventListener("change", function (event) {
-    event.stopPropagation();
+oldSelectSort.appendChild(newOptionOfSelect);
+
+newSortButton.addEventListener("click", function (e) {
+    e.stopPropagation();
+    newSortButton.nextSibling.classList.toggle("select-hide");
+    newSortButton.classList.toggle("active");
     displayDataMedia();
     initLikes()
 });

@@ -1,19 +1,29 @@
-const modalOpen = document.getElementById("contact_modal");
-const modalClose = document.getElementById("contact_modal");
+const modal = document.getElementById("contact_modal");
+const main = document.querySelector("main");
 
 
 function openModal() {
-    modalOpen.style.display = "block";
+    modal.style.display = "block";
+    main.setAttribute("aria-hidden", true)
+    modal.setAttribute("aria-hidden", false)
+    firstname.focus();
 }
 
 function closeModal() {
-    modalClose.style.display = "none";
+    modal.style.display = "none";
+    main.setAttribute("aria-hidden", false)
+    modal.setAttribute("aria-hidden", true)
 }
 
+window.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+        modal.style.display = 'none'
+    }
+})
 
 
 // DOM
-const firstname = document.forms["contactMe"]["name"];
+const firstname = document.forms["contactMe"]["firstname"];
 const lastname = document.forms["contactMe"]["lastname"];
 const email = document.forms["contactMe"]["email"];
 const birthdate = document.forms["contactMe"]["message"];
