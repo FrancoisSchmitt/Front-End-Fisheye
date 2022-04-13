@@ -18,67 +18,70 @@ newOptionOfSelect.classList.add("select-items", "select-hide");
 
 
 for (let option of selectElt.options) {
-    const newOption = document.createElement("label");
-    newOption.setAttribute("tabindex", "0")
-    newOption.setAttribute("role", "option")
+  const newOption = document.createElement("label");
+  newOption.setAttribute("tabindex", "0")
+  newOption.setAttribute("role", "option")
 
-    newOption.innerHTML = option.innerHTML;
-    newOption.addEventListener("click", function () {
-        for (let option of selectElt.options) {
-            if (option.innerHTML === newOption.innerHTML) {
-                selectElt.selectedIndex = option.index;
-                newSortButton.innerHTML = newOption.innerHTML;
-            }
+  newOption.innerHTML = option.innerHTML;
+  newOption.addEventListener("click", function () {
+    for (let option of selectElt.options) {
+      if (option.innerHTML === newOption.innerHTML) {
+        selectElt.selectedIndex = option.index;
+        newSortButton.innerHTML = newOption.innerHTML;
+      }
+    }
+    newSortButton.click();
+  });
+  newOption.addEventListener("keydown", function (e) {
+    if (e.code === 'Enter') {
+      for (let option of selectElt.options) {
+        if (option.innerHTML === newOption.innerHTML) {
+          selectElt.selectedIndex = option.index;
+          newSortButton.innerHTML = newOption.innerHTML;
         }
-        newSortButton.click();
-    });
-    newOption.addEventListener("keydown", function (e) {
-        if (e.code === 'Enter') {
-            for (let option of selectElt.options) {
-                if (option.innerHTML === newOption.innerHTML) {
-                    selectElt.selectedIndex = option.index;
-                    newSortButton.innerHTML = newOption.innerHTML;
-                }
-            }
-            newSortButton.click();
-        }
-    });
-    newOptionOfSelect.appendChild(newOption);
+      }
+      newSortButton.click();
+    }
+  });
+  newOptionOfSelect.appendChild(newOption);
 }
 oldSelectSort.appendChild(newOptionOfSelect);
 
 newSortButton.addEventListener("click", function (e) {
-    e.stopPropagation();
-    newSortButton.nextSibling.classList.toggle("select-hide");
-    newSortButton.classList.toggle("active");
-    displayDataMedia();
-    initLikes()
+  e.stopPropagation();
+  newSortButton.nextSibling.classList.toggle("select-hide");
+  newSortButton.classList.toggle("active");
+  // eslint-disable-next-line no-undef
+  displayDataMedia();
+  // eslint-disable-next-line no-undef
+  initLikes()
 });
 
 
 
 
 
+// eslint-disable-next-line no-unused-vars
 function sortByTitle(a, b) {
-    if (a.title < b.title) {
-        return -1;
-    }
-    if (b.title > b.title) {
-        return 1;
-    }
-    return 0;
+  if (a.title < b.title) {
+    return -1;
+  }
+  if (b.title > b.title) {
+    return 1;
+  }
+  return 0;
 }
-
+// eslint-disable-next-line no-unused-vars
 function sortByLikes(a, b) {
-    return b.likes - a.likes;
+  return b.likes - a.likes;
 }
-
+// eslint-disable-next-line no-unused-vars
 function sortByDate(a, b) {
-    if (a.date > b.date) {
-        return -1;
-    }
-    if (b.date < b.date) {
-        return 1;
-    }
-    return 0;
+  if (a.date > b.date) {
+    return -1;
+  }
+  if (b.date < b.date) {
+    return 1;
+  }
+  return 0;
 }
