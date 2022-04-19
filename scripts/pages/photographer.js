@@ -1,11 +1,11 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable no-undef */
 //Mettre le code JavaScript lié à la page photographer.html
 const getPhotographers = async () => {
   await fetch("./data/photographers.json")
     .then((res) => res.json())
-    // eslint-disable-next-line no-undef
     .then((data) => (photographers = data.photographers));
   return {
-    // eslint-disable-next-line no-undef
     photographers: [...photographers],
   };
 };
@@ -22,7 +22,7 @@ async function displayData(photographers) {
   photographers.forEach((photographer) => {
 
     if (photographer.id == id) {
-      // eslint-disable-next-line no-undef
+
       const bannerPhotograph = photographerFactory(photographer);
 
       const userBannerCardDOM = bannerPhotograph.getUserBannerCardDOM();

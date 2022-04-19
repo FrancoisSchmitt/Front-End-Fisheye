@@ -5,8 +5,6 @@ class Lightbox {
     const links = Array.from(document.querySelectorAll('.imageLightbox,video[src$=".mp4"]'))
     const titles = Array.from(document.querySelectorAll('.title'))
     const gallery = links.map(link => link.getAttribute('src'))
-    // console.log(titles)
-
     links.forEach(link => link.addEventListener('click', e => {
       e.preventDefault()
       new Lightbox(e.currentTarget.getAttribute('src'), gallery, titles)

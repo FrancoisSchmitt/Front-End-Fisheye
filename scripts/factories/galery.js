@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
 function galeryFactory(data) {
   const { id, photographerId, title, image, video, likes, date, price } = data;
 
@@ -39,7 +39,6 @@ function galeryFactory(data) {
     else {
       videoGalery.setAttribute("type", "video/mp4");
       videoGalery.setAttribute("src", galeryvideoId);
-      // videoGalery.classList.add("imageLightbox")
       videoGalery.setAttribute("tabindex", "0");
       videoGalery.setAttribute("alt", title + " closeup view")
       galeryUser.appendChild(videoGalery);

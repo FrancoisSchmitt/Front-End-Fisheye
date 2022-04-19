@@ -30,7 +30,6 @@ const email = document.forms["contactMe"]["email"];
 const message = document.forms["contactMe"]["message"];
 const formData = document.querySelectorAll(".formData");
 
-
 // DOM event form
 const eventForm = document.querySelector("form");
 

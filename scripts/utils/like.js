@@ -1,11 +1,13 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 const Likes = async () => {
   await fetch("./data/photographers.json")
     .then((res) => res.json())
-    // eslint-disable-next-line no-undef
+
     .then((data) => (medias = data.media));
 
   return {
-    // eslint-disable-next-line no-undef
+
     medias: [...medias],
   };
 };
@@ -44,7 +46,7 @@ function incrementLikes() {
 }
 
 async function initLikes() {
-  // eslint-disable-next-line no-unused-vars
+
   const { medias } = await Likes();
   incrementLikes();
   likeCounter();

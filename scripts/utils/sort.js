@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 
 const selectElt = document.getElementById('mySelect');
 const oldSelectSort = document.getElementById('listbox-content');
@@ -51,9 +53,9 @@ newSortButton.addEventListener("click", function (e) {
   e.stopPropagation();
   newSortButton.nextSibling.classList.toggle("select-hide");
   newSortButton.classList.toggle("active");
-  // eslint-disable-next-line no-undef
+
   displayDataMedia();
-  // eslint-disable-next-line no-undef
+
   initLikes()
 });
 
@@ -61,7 +63,7 @@ newSortButton.addEventListener("click", function (e) {
 
 
 
-// eslint-disable-next-line no-unused-vars
+
 function sortByTitle(a, b) {
   if (a.title < b.title) {
     return -1;
@@ -71,11 +73,11 @@ function sortByTitle(a, b) {
   }
   return 0;
 }
-// eslint-disable-next-line no-unused-vars
+
 function sortByLikes(a, b) {
   return b.likes - a.likes;
 }
-// eslint-disable-next-line no-unused-vars
+
 function sortByDate(a, b) {
   if (a.date > b.date) {
     return -1;
